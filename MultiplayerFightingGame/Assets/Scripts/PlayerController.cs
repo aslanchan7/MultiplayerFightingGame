@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] KeyCode jumpKey = KeyCode.W;
     [SerializeField] float moveSpeed;
     [SerializeField] float jumpForce;
+    [SerializeField] LayerMask groundLayer;
+    private bool onGround;
 
     // References
     private Rigidbody2D rb;
@@ -35,7 +37,10 @@ public class PlayerController : MonoBehaviour
         }
 
         // Jumping
-        if (Input.GetKeyDown(jumpKey))
+        float distToGround = GetComponent<Collider2D>().bounds.extents.y;
+        onGround = Physics2D.Raycast(transform.position, Vector2.down, distToGround + 0.1f, groundLayer);
+
+        if (Input.GetKeyDown(jumpKey) && onGround)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }

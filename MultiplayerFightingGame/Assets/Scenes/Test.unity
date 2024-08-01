@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 119247343}
   - component: {fileID: 119247342}
   - component: {fileID: 119247341}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,6 +384,9 @@ MonoBehaviour:
   jumpKey: 119
   moveSpeed: 4
   jumpForce: 19
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!61 &199702648
 BoxCollider2D:
   m_ObjectHideFlags: 0
